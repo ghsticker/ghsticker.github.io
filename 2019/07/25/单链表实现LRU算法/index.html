@@ -15,8 +15,8 @@
 <meta property="og:url" content="http://yoursite.com/2019/07/25/单链表实现LRU算法/index.html">
 <meta property="og:site_name" content="ghsticker的博客">
 <meta property="og:description" content="单链表的基本应用">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-25T02:06:41.418Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-25T02:53:09.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单链表实现LRU算法">
 <meta name="twitter:description" content="单链表的基本应用">
@@ -54,7 +54,7 @@
 		  <h1 class="header-author"><a href="/">ghsticker</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">ghsticker的博客</p>
+		<p class="header-subtitle">爱生活，编码的小学僧</p>
 		
 
 		<nav class="header-menu">
@@ -114,7 +114,7 @@
 			  <h1 class="header-author js-header-author">ghsticker</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>ghsticker的博客<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>爱生活，编码的小学僧<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -183,6 +183,8 @@
 <p>  LRU应该是面试中常见的算法题目了，其实实现起来也不是特别的困难，使用的数据结构也是常见的单链表。</p>
 <p>  下面使用java 实现。</p>
 </blockquote>
+<a id="more"></a>
+
 <h2 id="0-什么是LRU"><a href="#0-什么是LRU" class="headerlink" title="0.什么是LRU"></a>0.什么是LRU</h2><p>LRU（Least recently used，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”</p>
 <h2 id="1-思路"><a href="#1-思路" class="headerlink" title="1.思路"></a>1.思路</h2><p>首先选择合适的数据结构，这里使用的的单链表。</p>
 <p>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</p>
