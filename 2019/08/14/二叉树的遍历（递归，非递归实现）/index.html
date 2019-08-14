@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>二叉树的遍历（递归，非递归实现） | ghsticker的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二叉树的遍历（递归，非递归实现）   二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。  0.什么是二叉树二叉树其实不难理解，有这官方的定义。要是你对普通的树型结构有所了解的话，二叉树其实是一颗特殊的树，它有着自己的特别。  每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。 左右子树都是有顺序的，且次序不">
+  <meta name="description" content="二叉树的遍历（递归，非递归实现）   二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。">
 <meta name="keywords" content="数据结构 二叉树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二叉树的遍历（递归，非递归实现）">
 <meta property="og:url" content="http://yoursite.com/2019/08/14/二叉树的遍历（递归，非递归实现）/index.html">
 <meta property="og:site_name" content="ghsticker的博客">
-<meta property="og:description" content="二叉树的遍历（递归，非递归实现）   二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。  0.什么是二叉树二叉树其实不难理解，有这官方的定义。要是你对普通的树型结构有所了解的话，二叉树其实是一颗特殊的树，它有着自己的特别。  每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。 左右子树都是有顺序的，且次序不">
+<meta property="og:description" content="二叉树的遍历（递归，非递归实现）   二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ghsticker.cn/images/20190814/n0bApjY8VTXR.jpg?imageslim">
 <meta property="og:image" content="http://ghsticker.cn/images/20190814/n0bApjY8VTXR.jpg?imageslim">
-<meta property="og:updated_time" content="2019-08-14T07:21:33.354Z">
+<meta property="og:updated_time" content="2019-08-14T07:23:49.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二叉树的遍历（递归，非递归实现）">
-<meta name="twitter:description" content="二叉树的遍历（递归，非递归实现）   二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。  0.什么是二叉树二叉树其实不难理解，有这官方的定义。要是你对普通的树型结构有所了解的话，二叉树其实是一颗特殊的树，它有着自己的特别。  每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。 左右子树都是有顺序的，且次序不">
+<meta name="twitter:description" content="二叉树的遍历（递归，非递归实现）   二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。">
 <meta name="twitter:image" content="http://ghsticker.cn/images/20190814/n0bApjY8VTXR.jpg?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="ghsticker的博客" type="application/atom+xml">
@@ -190,6 +190,8 @@
         <h1 id="二叉树的遍历（递归，非递归实现）"><a href="#二叉树的遍历（递归，非递归实现）" class="headerlink" title="二叉树的遍历（递归，非递归实现）"></a>二叉树的遍历（递归，非递归实现）</h1><blockquote>
 <p>  二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。</p>
 </blockquote>
+<a id="more"></a>
+
 <h2 id="0-什么是二叉树"><a href="#0-什么是二叉树" class="headerlink" title="0.什么是二叉树"></a>0.什么是二叉树</h2><p>二叉树其实不难理解，有这官方的定义。要是你对普通的树型结构有所了解的话，二叉树其实是一颗特殊的树，它有着自己的特别。</p>
 <ul>
 <li>每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。</li>
@@ -491,15 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">单链表 算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
