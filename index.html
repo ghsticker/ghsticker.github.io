@@ -159,6 +159,123 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-二叉树的遍历（递归，非递归实现）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/14/二叉树的遍历（递归，非递归实现）/">二叉树的遍历（递归，非递归实现）</a>
+    </h1>
+  
+
+        
+        
+
+
+
+<a href="/2019/08/14/二叉树的遍历（递归，非递归实现）/" class="archive-article-date">
+  	<time datetime="2019-08-14T07:20:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二叉树的遍历（递归，非递归实现）"><a href="#二叉树的遍历（递归，非递归实现）" class="headerlink" title="二叉树的遍历（递归，非递归实现）"></a>二叉树的遍历（递归，非递归实现）</h1><blockquote>
+<p>  二叉树的遍历是一些动态查找的基础，也是数据结构中的重要知识点。最近有时间重新回顾一个这几种常见的遍历方式。若有不对之处，请批评指正。</p>
+</blockquote>
+<h2 id="0-什么是二叉树"><a href="#0-什么是二叉树" class="headerlink" title="0.什么是二叉树"></a>0.什么是二叉树</h2><p>二叉树其实不难理解，有这官方的定义。要是你对普通的树型结构有所了解的话，二叉树其实是一颗特殊的树，它有着自己的特别。</p>
+<ul>
+<li>每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。</li>
+<li>左右子树都是有顺序的，且次序不能颠倒。</li>
+</ul>
+<h2 id="1-二叉树的遍历（递归）"><a href="#1-二叉树的遍历（递归）" class="headerlink" title="1.二叉树的遍历（递归）"></a>1.二叉树的遍历（递归）</h2><p>最基本的二叉树的遍历，有前序，中序，后序遍历。而递归的实现方式也是大家最常见的一种实现方式。面对递归对于一些初学者来说还是有一些困难的。但是只要你宏观的逻辑是上走同即可。</p>
+<p>下面看看前序遍历。所谓的前序遍历则是，根，左节点，右节点。</p>
+<p><img src="http://ghsticker.cn/images/20190814/n0bApjY8VTXR.jpg?imageslim" alt="mark"></p>
+<p>像上图上的二叉树，前序遍历的结果是 A B D E C</p>
+<p>这样写一个递归的遍历则就是，先访问根节点，再访问左节点，再试右节点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">perOrder</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">	<span class="comment">//判断二叉树是否空	</span></span><br><span class="line">    <span class="keyword">if</span>(p!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			visit(p);</span><br><span class="line">			perOrder(p-&gt;lchild);</span><br><span class="line">			perOrder(p-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>剩下的中序和后序遍历则就比较好理解了。</p>
+<p>下面直接附代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">	<span class="comment">//判断二叉树是否空	</span></span><br><span class="line">    <span class="keyword">if</span>(p!=<span class="keyword">null</span>)&#123;	</span><br><span class="line">		inOrder(p-&gt;lchild);</span><br><span class="line">		visit(p);	</span><br><span class="line">        inOrder(p-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">	<span class="comment">//判断二叉树是否空	</span></span><br><span class="line">    <span class="keyword">if</span>(p!=<span class="keyword">null</span>)&#123;	</span><br><span class="line">		postOrder(p-&gt;lchild);</span><br><span class="line">        postOrder(p-&gt;rchild);</span><br><span class="line">        visit(p);	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-二叉树的遍历（非递归）"><a href="#2-二叉树的遍历（非递归）" class="headerlink" title="2.二叉树的遍历（非递归）"></a>2.二叉树的遍历（非递归）</h2><p>非递归的遍历呢，则就是自己实现系统栈所做的工作。上面讲的递归遍历其实还是有问题的，要是二叉树比较深，在递归的时候就容易出现栈的溢出。非递归的算法相比于递归的算法来讲，效率上也是好一些的。</p>
+<p>先说一个前序遍历吧。</p>
+<p>再来回顾一个啥是前序遍历呀，就是根，左节点，右节点。现在做的是非递归，显然，我们需要一个其他的数据结构那就是栈。该如何利用栈呢。</p>
+<p>是这么操作的。先将根节点入栈。当栈不空的时候，栈顶节点出栈，若存在右节点，让右节点入栈。若左节点存在，让左节点入栈。往复循环这个过程。这样就可以。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preOrderNorRecun</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">	BTNode* stack[maxSize] ;</span><br><span class="line">	<span class="keyword">int</span> top  = -<span class="number">1</span>;</span><br><span class="line">	BtNode q;</span><br><span class="line">	<span class="keyword">if</span>(P!=<span class="keyword">null</span>)&#123;</span><br><span class="line">		stack[++top] = p;</span><br><span class="line">		<span class="keyword">while</span>(top！=-<span class="number">1</span>)&#123;</span><br><span class="line">			q = stack[top--];</span><br><span class="line">			<span class="keyword">if</span>(p-&gt;rchild != <span class="keyword">null</span>)&#123;</span><br><span class="line">				stack[++top] = p-&gt;rchild;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(p-&gt;lchild != <span class="keyword">null</span>)&#123;</span><br><span class="line">				stack[++top] = p-&gt;lchild;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在就是中序遍历。其实操作上都是通过栈来进行的，只是在步骤上有所不同罢了。</p>
+<p>步骤是这样子的。先将根节点入栈，然后若左节点一直不为空的话，就一直入栈。当没有左节点就让这个节点指向右节点。继续进行上面的步骤。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inOrderNorRecu</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">	BtNode* stack[maxSize];</span><br><span class="line">	<span class="keyword">int</span> top = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(top!= -<span class="number">1</span> || p != <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(p-&gt;lchild != <span class="keyword">null</span>)&#123;</span><br><span class="line">			stack[++top] = p;</span><br><span class="line">			p = p-&gt;lchild;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(top != -<span class="number">1</span>)&#123;</span><br><span class="line">			q = stack[top--];</span><br><span class="line">			visit(q);</span><br><span class="line">			p = p-&gt;rchild;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后就是后序遍历的非递归了，其实后序遍历的非递归还是比较复杂的，这里采用一种双栈的方式简化一下这个算法。</p>
+<p>  要是你比较细心就会发现这么一个规律。==后序遍历的倒序和把左右子树颠倒的前序遍历是一致的==</p>
+<p><img src="http://ghsticker.cn/images/20190814/n0bApjY8VTXR.jpg?imageslim" alt="mark"></p>
+<p>上面的二叉树的后序遍历是 D E B C A。倒序为 A C B E D。</p>
+<p>把上面的二叉树左右子树颠倒，进行前序遍历为，A C B E D。这样就和后序遍历的倒序是一致的。这样我们就是借鉴前序非递归的代码，进行编写了。</p>
+<p>思路是这样子的，定义两个栈。一个栈做遍历顺序，一个栈放出第一个栈的结点。这个和前序非递归的非常相似的。先将根节点入栈。当栈不为空的时候，将栈顶结点出栈，并入第二个栈。然后若==左节点不是为空==，入栈。==右节点不为空==，入栈。最后将第二个栈的结点依次出栈则为 后序遍历的结果。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postOrderNorRecu</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">	BtNode* stack1[maxSize];<span class="keyword">int</span> top1 = -<span class="number">1</span>;</span><br><span class="line">	BtNode* stack2[maxSize];<span class="keyword">int</span> top2 = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	BtNode *q;</span><br><span class="line">	<span class="keyword">if</span>(p!=<span class="keyword">null</span>)&#123;</span><br><span class="line">		stack1[++top1] = p;</span><br><span class="line">		<span class="keyword">while</span>(top1 != -<span class="number">1</span>)&#123;</span><br><span class="line">			q = stack1[top1--];</span><br><span class="line">			stack2[++top2] = q;</span><br><span class="line">			<span class="keyword">if</span>(p-&gt;lchild != <span class="keyword">null</span>)&#123; </span><br><span class="line">				stack1[++top1] = p-&gt;lchild;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(p-&gt;rchild != <span class="keyword">null</span>)&#123;</span><br><span class="line">				stack1[++top1] = p-&gt;rchild;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(top2 != -<span class="number">1</span>)&#123;</span><br><span class="line">			q = stack2[top--];</span><br><span class="line">			visit(q);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据结构 二叉树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/14/二叉树的遍历（递归，非递归实现）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SpringBoot的自动配置原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -591,6 +708,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">单链表 算法</a>
