@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>index | ghsticker的博客</title>
+  <title>SpringMVC中乱码问题的解决 | ghsticker的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringMVC中乱码问题的解决1.post提交在web.xml中配置SpringMVC自带的过滤器，如下： 123456789101112131415&amp;lt;!-- 处理POST提交乱码问题 --&amp;gt;  &amp;lt;filter&amp;gt;  	&amp;lt;filter-name&amp;gt;encoding&amp;lt;/filter-name&amp;gt;  	&amp;lt;filter-class&amp;gt;org.spr">
+  <meta name="description" content="SpringMVC中乱码问题的解决   在使用SpringMVC的时候，总会遇见各种各样的乱码情况，这里讲解一些SpringMVC解决乱码的几种方式。">
 <meta name="keywords" content="SpringMVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="index">
+<meta property="og:title" content="SpringMVC中乱码问题的解决">
 <meta property="og:url" content="http://yoursite.com/2019/03/11/SpringMVC中乱码问题的解决/index.html">
 <meta property="og:site_name" content="ghsticker的博客">
-<meta property="og:description" content="SpringMVC中乱码问题的解决1.post提交在web.xml中配置SpringMVC自带的过滤器，如下： 123456789101112131415&amp;lt;!-- 处理POST提交乱码问题 --&amp;gt;  &amp;lt;filter&amp;gt;  	&amp;lt;filter-name&amp;gt;encoding&amp;lt;/filter-name&amp;gt;  	&amp;lt;filter-class&amp;gt;org.spr">
+<meta property="og:description" content="SpringMVC中乱码问题的解决   在使用SpringMVC的时候，总会遇见各种各样的乱码情况，这里讲解一些SpringMVC解决乱码的几种方式。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ghsticker.cn/images/20190817/GppD6ufYDnC3.png?imageslim">
 <meta property="og:image" content="http://ghsticker.cn/images/20190817/iqdTgW5Wh1jM.png?imageslim">
-<meta property="og:updated_time" content="2019-08-17T04:27:27.768Z">
+<meta property="og:updated_time" content="2019-08-17T04:31:05.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="index">
-<meta name="twitter:description" content="SpringMVC中乱码问题的解决1.post提交在web.xml中配置SpringMVC自带的过滤器，如下： 123456789101112131415&amp;lt;!-- 处理POST提交乱码问题 --&amp;gt;  &amp;lt;filter&amp;gt;  	&amp;lt;filter-name&amp;gt;encoding&amp;lt;/filter-name&amp;gt;  	&amp;lt;filter-class&amp;gt;org.spr">
+<meta name="twitter:title" content="SpringMVC中乱码问题的解决">
+<meta name="twitter:description" content="SpringMVC中乱码问题的解决   在使用SpringMVC的时候，总会遇见各种各样的乱码情况，这里讲解一些SpringMVC解决乱码的几种方式。">
 <meta name="twitter:image" content="http://ghsticker.cn/images/20190817/GppD6ufYDnC3.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="ghsticker的博客" type="application/atom+xml">
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      index
+      SpringMVC中乱码问题的解决
     </h1>
   
 
@@ -187,7 +187,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SpringMVC中乱码问题的解决"><a href="#SpringMVC中乱码问题的解决" class="headerlink" title="SpringMVC中乱码问题的解决"></a>SpringMVC中乱码问题的解决</h1><h2 id="1-post提交"><a href="#1-post提交" class="headerlink" title="1.post提交"></a>1.post提交</h2><p>在web.xml中配置SpringMVC自带的过滤器，如下：</p>
+        <h1 id="SpringMVC中乱码问题的解决"><a href="#SpringMVC中乱码问题的解决" class="headerlink" title="SpringMVC中乱码问题的解决"></a>SpringMVC中乱码问题的解决</h1><blockquote>
+<p>  在使用SpringMVC的时候，总会遇见各种各样的乱码情况，这里讲解一些SpringMVC解决乱码的几种方式。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-post提交"><a href="#1-post提交" class="headerlink" title="1.post提交"></a>1.post提交</h2><p>在web.xml中配置SpringMVC自带的过滤器，如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理POST提交乱码问题 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 需要过滤的地址 --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-get提交"><a href="#2-get提交" class="headerlink" title="2.get提交"></a>2.get提交</h2><p>tomcat配置 URIEncoding=”utf-8”</p>
@@ -471,11 +476,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,10 +493,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">

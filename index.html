@@ -573,7 +573,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/11/SpringMVC中乱码问题的解决/">index</a>
+      <a class="article-title" href="/2019/03/11/SpringMVC中乱码问题的解决/">SpringMVC中乱码问题的解决</a>
     </h1>
   
 
@@ -591,22 +591,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SpringMVC中乱码问题的解决"><a href="#SpringMVC中乱码问题的解决" class="headerlink" title="SpringMVC中乱码问题的解决"></a>SpringMVC中乱码问题的解决</h1><h2 id="1-post提交"><a href="#1-post提交" class="headerlink" title="1.post提交"></a>1.post提交</h2><p>在web.xml中配置SpringMVC自带的过滤器，如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理POST提交乱码问题 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 需要过滤的地址 --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-get提交"><a href="#2-get提交" class="headerlink" title="2.get提交"></a>2.get提交</h2><p>tomcat配置 URIEncoding=”utf-8”</p>
-<p>在eclipse下找到，server.xml</p>
-<p><img src="http://ghsticker.cn/images/20190817/GppD6ufYDnC3.png?imageslim" alt="mark"></p>
-<p>在server.xml中找到</p>
-<p><img src="http://ghsticker.cn/images/20190817/iqdTgW5Wh1jM.png?imageslim" alt="mark"></p>
-<p>修改这一行为</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">URIEncoding</span>=<span class="string">"utf-8"</span>  <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>即可。</p>
-<h2 id="3-响应乱码"><a href="#3-响应乱码" class="headerlink" title="3.响应乱码"></a>3.响应乱码</h2><p>在代码中添加：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br></pre></td></tr></table></figure>
-
-
+        <h1 id="SpringMVC中乱码问题的解决"><a href="#SpringMVC中乱码问题的解决" class="headerlink" title="SpringMVC中乱码问题的解决"></a>SpringMVC中乱码问题的解决</h1><blockquote>
+<p>  在使用SpringMVC的时候，总会遇见各种各样的乱码情况，这里讲解一些SpringMVC解决乱码的几种方式。</p>
+</blockquote>
+        
       
 
       
@@ -767,11 +755,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,10 +772,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
