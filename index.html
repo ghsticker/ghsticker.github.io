@@ -187,12 +187,7 @@
         <h1 id="二叉树的层次遍历"><a href="#二叉树的层次遍历" class="headerlink" title="二叉树的层次遍历"></a>二叉树的层次遍历</h1><blockquote>
 <p>  前面有讲到二叉树的前中后序遍历，这里我们在讲解一下二叉树的层次遍历，不要小看这个遍历，它与图的广度优先遍历还是很相似的，记住一个顶两个。</p>
 </blockquote>
-<h2 id="0-什么是层次遍历"><a href="#0-什么是层次遍历" class="headerlink" title="0.什么是层次遍历"></a>0.什么是层次遍历</h2><p>顾名思义，层次遍历就是一层一层的遍历</p>
-<p><img src="http://ghsticker.cn/images/20190814/n0bApjY8VTXR.jpg?imageslim" alt="mark"></p>
-<p>对于上面这颗树来说，它的层次遍历就是A B C D E</p>
-<h2 id="1-层次遍历的实现"><a href="#1-层次遍历的实现" class="headerlink" title="1.层次遍历的实现"></a>1.层次遍历的实现</h2><p>层次遍历的实现呢，最重要的是采用一个数据结构队列。</p>
-<p>主要的思路则是：现将根节点入队，当队列不为空时，将左节点入队，右节点入队，一直循环下去，直到队列为空。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">level</span><span class="params">(BtNode p)</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">		BtNode queue[maxSize];</span><br><span class="line">		<span class="keyword">int</span> front,rear;</span><br><span class="line">		BtNode q;</span><br><span class="line">		<span class="keyword">if</span>(p!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			rear = (rear+<span class="number">1</span>)%maxSize;</span><br><span class="line">			queue[rear] = p;</span><br><span class="line">			<span class="keyword">while</span>(front != rear)&#123;</span><br><span class="line">				front = (front+<span class="number">1</span>) % maxSize;</span><br><span class="line">				q = queue[front];</span><br><span class="line">				visit(q);</span><br><span class="line">				<span class="keyword">if</span>(q-&gt;lchild != <span class="keyword">null</span>)&#123;</span><br><span class="line">					rear = (rear+<span class="number">1</span>) % maxSize;</span><br><span class="line">					queue[rear] = p-&gt;lchild;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(q-&gt;rchild != <span class="keyword">null</span>)&#123;</span><br><span class="line">					rear = (rear+<span class="number">1</span>) % maxSize;</span><br><span class="line">					queue[rear] = p-&gt;rchild;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -1097,11 +1092,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
